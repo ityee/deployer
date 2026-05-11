@@ -1,0 +1,44 @@
+{
+  "name": "heroku-session-bot",
+  "description": "A Telegram bot that updates the SESSION_ID config variable on a target Heroku app via the Heroku Platform API.",
+  "keywords": [
+    "telegram",
+    "bot",
+    "heroku",
+    "session",
+    "config-vars",
+    "python"
+  ],
+  "website": "",
+  "repository": "",
+  "stack": "heroku-24",
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Telegram bot token obtained from @BotFather.",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Your Heroku API key. Find it at https://dashboard.heroku.com/account under 'API Key'.",
+      "required": true
+    },
+    "TARGET_APP_NAME": {
+      "description": "The exact name of the Heroku app whose SESSION_ID config var this bot will update.",
+      "required": true
+    },
+    "ADMIN_CHAT_ID": {
+      "description": "The Telegram chat/user ID of the only person allowed to use this bot. Send /id to the bot to discover your ID.",
+      "required": true
+    }
+  }
+}
